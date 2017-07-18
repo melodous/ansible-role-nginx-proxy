@@ -14,7 +14,7 @@
     volumes:
       - /etc/hosts:/etc/hosts
       - /etc/localtime:/etc/localtime
-        #      - "{{ nginx_path }}:/etc/nginx"
+      - "{{ nginx_path }}:/etc/nginx"
 
 - name: Create init-script rhel6
   copy: src=nginx_rhel6 dest=/etc/init.d/nginx owner=root group=root mode=0755
