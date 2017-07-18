@@ -1,0 +1,19 @@
+- name: include OS-specific variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: create {{nginx_group}} group
+  group: name={{nginx_group}} state=present
+  become: yes
+
+- name: create {{nginx_user}} user
+  user: name={{nginx_user}} groups={{nginx_group}} state=present
+  become: yes
+
+- include: nginx.yml
+  become: yes
+
+- include: ssl.yml
+  become: yes
+
+- include: configure.yml
+  become: yes

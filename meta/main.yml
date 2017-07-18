@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Raúl Melo
+  description:
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+    - all

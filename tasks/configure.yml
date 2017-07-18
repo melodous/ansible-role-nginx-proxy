@@ -1,0 +1,32 @@
+- name: Start nginx containers
+  docker_container:
+    name: nginx
+    image: "{{ nginx_docker_image }}:{{ nginx_version }}"
+    network_mode: host
+    state: started
+    log_driver: json-file
+    log_options:
+      max-file: "1"
+      max-size: "20m"
+    labels: "{{ nginx_docker_labels }}"
+    restart_policy: unless-stopped
+    restart_retries: 3
+    volumes:
+      - /etc/hosts:/etc/hosts
+      - /etc/localtime:/etc/localtime
+        #      - "{{ nginx_path }}:/etc/nginx"
+
+- name: Create init-script rhel6
+  copy: src=nginx_rhel6 dest=/etc/init.d/nginx owner=root group=root mode=0755
+  when:
+    ansible_distribution_major_version|int < 7
+    and ansible_os_family == 'RedHat'
+
+- name: Create init-script rhel7
+  copy: src=nginx_rhel7 dest=/usr/lib/systemd/system/nginx.service owner=root group=root mode=0644
+  when:
+    ansible_distribution_major_version|int > 6
+    and ansible_os_family == 'RedHat'
+
+- name: Enable init-scripts
+  service: name=nginx enabled=yes state=started
