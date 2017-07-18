@@ -1,11 +1,15 @@
 
 - name: create nginx folder
   file:
-    path: "{{nginx_path}}"
+    path: "{{ item }}"
     state: directory
     owner: "{{nginx_user}}"
     group: "{{nginx_group}}"
-    mode: 0644
+    mode: 0755
+  with_items:
+    - "{{ nginx_path }}"
+    - "{{nginx_path}}/sites-enabled"
+    - "{{nginx_path}}/sites-available"
 
 - name: copy nginx.conf
   template:
