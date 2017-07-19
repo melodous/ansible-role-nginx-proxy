@@ -74,7 +74,7 @@ os\_contianer\_type: Type of the container, by default nginx.
 
 > List of ssl virtual sites
 
-    nginx_proxy_ssl_virtual_sites: ''
+    nginx_proxy_ssl_virtual_sites: []
 
 Example:
 
@@ -115,7 +115,7 @@ Example:
 
 > List of non-ssl virtual sites
 
-    nginx_proxy_virtual_sites: ''
+    nginx_proxy_virtual_sites: []
 
 Example:
 
@@ -134,7 +134,7 @@ Example:
 
 > List of http(s) 301 redirects
 
-    nginx_redirect_ssl_virtual_sites: ''
+    nginx_redirect_ssl_virtual_sites: []
 
 Example:
 
@@ -157,7 +157,7 @@ Example:
 
 > List of only http 301 redirects
 
-    nginx_redirect_virtual_sites: ''
+    nginx_redirect_virtual_sites: []
 
 Example:
 
@@ -174,7 +174,7 @@ Example:
 
 > Custom virtual host
 
-    nginx_custom_vhosts: ''
+    nginx_custom_vhosts: []
 
 Example:
 

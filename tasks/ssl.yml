@@ -17,6 +17,8 @@
   when: st.stat.exists == False
   notify:
   - restart nginx
+  tags:
+    - skip_ansible_lint
 
 - name: chown dhparams
   file:

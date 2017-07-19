@@ -85,7 +85,7 @@ nginx configuration management
 
 ::
 
-  nginx_proxy_ssl_virtual_sites: ''
+  nginx_proxy_ssl_virtual_sites: []
 
 
 Example:
@@ -137,7 +137,7 @@ Example:
 
 ::
 
-  nginx_proxy_virtual_sites: ''
+  nginx_proxy_virtual_sites: []
 
 
 Example:
@@ -168,7 +168,7 @@ Example:
 
 ::
 
-  nginx_redirect_ssl_virtual_sites: ''
+  nginx_redirect_ssl_virtual_sites: []
 
 
 Example:
@@ -202,7 +202,7 @@ Example:
 
 ::
 
-  nginx_redirect_virtual_sites: ''
+  nginx_redirect_virtual_sites: []
 
 
 Example:
@@ -230,7 +230,7 @@ Example:
 
 ::
 
-  nginx_custom_vhosts: ''
+  nginx_custom_vhosts: []
 
 
 Example:
